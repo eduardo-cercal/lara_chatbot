@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:lara_chatbot/features/login/presentation/login_controller.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  const LoginScreen({super.key, required this.controller});
+
+  final LoginController controller;
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _obscureText = true;
-
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +33,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Campo E-mail
                 TextFormField(
+                  onEditingComplete: () =>
+                      widget.controller.validateEmail(emailController.text),
+                  onFieldSubmitted: widget.controller.validateEmail,
+                  controller: emailController,
+                  autofocus: true,
                   decoration: const InputDecoration(
                     labelText: 'E-mail',
                     border: OutlineInputBorder(),
@@ -37,20 +46,28 @@ class _LoginScreenState extends State<LoginScreen> {
                 const SizedBox(height: 16),
 
                 // Campo Senha
-                TextFormField(
-                  obscureText: _obscureText,
-                  decoration: InputDecoration(
-                    labelText: 'Senha',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      icon: Icon(
-                        _obscureText ? Icons.visibility : Icons.visibility_off,
-                      ),
-                      onPressed: () =>
-                          setState(() => _obscureText = !_obscureText),
+                Obx(() {
+                  return TextFormField(
+                    onEditingComplete: () => widget.controller.validatePassword(
+                      passwordController.text,
                     ),
-                  ),
-                ),
+                    onFieldSubmitted: widget.controller.validatePassword,
+                    obscureText: widget.controller.isObscured.value,
+                    controller: passwordController,
+                    decoration: InputDecoration(
+                      labelText: 'Senha',
+                      border: const OutlineInputBorder(),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          widget.controller.isObscured.value
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                        ),
+                        onPressed: widget.controller.setObscurePassword,
+                      ),
+                    ),
+                  );
+                }),
                 const SizedBox(height: 24),
 
                 // Botão Login E-mail
@@ -58,17 +75,28 @@ class _LoginScreenState extends State<LoginScreen> {
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async =>
+                        await widget.controller.simulateLogin(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blueAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                     ),
-                    child: const Text(
-                      'Entrar',
-                      style: TextStyle(color: Colors.white),
-                    ),
+                    child: Obx(() {
+                      if (widget.controller.isLoading.value) {
+                        return Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        );
+                      }
+                      return const Text(
+                        'Entrar',
+                        style: TextStyle(color: Colors.white),
+                      );
+                    }),
                   ),
                 ),
 
@@ -87,9 +115,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Botão Circular do Google
                 GestureDetector(
-                  onTap: () {
-                    // Lógica Google
-                  },
+                  onTap: widget.controller.googleLogin,
                   child: Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
