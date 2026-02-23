@@ -12,9 +12,13 @@ dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.9.1
   equatable: ^2.0.8
+  firebase_ai: ^3.8.0
+  firebase_core: ^4.4.0
   flutter:
     sdk: flutter
+  flutter_ai_toolkit: ^1.0.0
   get: ^4.7.3
+  google_sign_in: ^7.2.0
   mocktail: ^1.0.4
 
 dev_dependencies:

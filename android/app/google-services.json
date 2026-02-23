@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1021414210539",
+    "project_id": "lara-chatbot-98f7d",
+    "storage_bucket": "lara-chatbot-98f7d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1021414210539:android:da39318636b441764537ae",
+        "android_client_info": {
+          "package_name": "br.com.eduardocercal.lara_chatbot"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtzjqF78EVfiSFXnD5mG5d6Ga3o9aiiNo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
