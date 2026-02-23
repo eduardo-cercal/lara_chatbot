@@ -12,7 +12,20 @@
           "package_name": "br.com.eduardocercal.lara_chatbot"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1021414210539-jgmrpkg0bphb2gahuobk1lchi0m1chab.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.eduardocercal.lara_chatbot",
+            "certificate_hash": "22c780bbdea86c99b5cfe1b3f973acdbaf72828e"
+          }
+        },
+        {
+          "client_id": "1021414210539-2nddrr26a2q5n2vau619kaoa0bvrclp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCtzjqF78EVfiSFXnD5mG5d6Ga3o9aiiNo"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1021414210539-2nddrr26a2q5n2vau619kaoa0bvrclp7.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1021414210539-j2h013d37hf15h7h6t4elre41ke7ihoe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.com.eduardocercal.laraChatbot"
+              }
+            }
+          ]
         }
       }
     }

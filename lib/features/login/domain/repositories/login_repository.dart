@@ -1,5 +1,5 @@
-import 'package:lara_chatbot/features/login/domain/entities/email_and_password_entity.dart';
+import 'package:lara_chatbot/core/interfaces/domain/repository.dart';
 
-abstract class LoginRepository {
-  Future<void> emailAndPasswordLogin(EmailAndPasswordEntity entity);
+abstract class LoginRepository implements Repository {
+  Future<void> googleSignIn();
 }

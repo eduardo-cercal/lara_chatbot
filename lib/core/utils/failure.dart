@@ -28,3 +28,12 @@ class InvaildLengthFaiure implements Failure {
   @override
   String get message => 'A senha deve conter pelo menos 6 caracteres';
 }
+
+class GenericFailure implements Failure {
+  final String? _message;
+
+  GenericFailure(this._message);
+
+  @override
+  String get message => _message ?? 'Algo inesperado ocorreu, tente novamente';
+}

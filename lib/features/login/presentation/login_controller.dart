@@ -5,6 +5,8 @@ abstract class LoginController extends GetxController {
   RxnString get error;
   RxnString get routeName;
   RxBool get isObscured;
+  RxnString get emailError;
+  RxnString get passwordError;
 
   void validateEmail(String email);
 

@@ -4,9 +4,9 @@ import 'package:lara_chatbot/features/login/domain/entities/email_and_password_e
 import 'package:lara_chatbot/features/login/utils/login_mapper.dart';
 
 class EmailAndPasswordLoginUsecase
-    implements FutureUsecase<void, EmailAndPasswordEntity> {
+    implements Usecase<void, EmailAndPasswordEntity> {
   @override
-  Future<void> execute([EmailAndPasswordEntity? entity]) async {
+  void execute([EmailAndPasswordEntity? entity]) {
     try {
       _isCorrectEmail(entity!.email);
       _isCorrectPassword(entity.password);
