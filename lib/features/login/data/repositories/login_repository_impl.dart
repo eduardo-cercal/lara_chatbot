@@ -1,4 +1,4 @@
-import 'package:lara_chatbot/features/login/data/login_datasource.dart';
+import 'package:lara_chatbot/features/login/data/datasources/login_datasource.dart';
 import 'package:lara_chatbot/features/login/domain/repositories/login_repository.dart';
 
 class LoginRepositoryImpl implements LoginRepository {
