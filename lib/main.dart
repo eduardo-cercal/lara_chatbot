@@ -40,6 +40,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialRoute: '/login',
+      theme: ThemeData(
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: Colors.white,
+        ),
+      ),
       getPages: [
         GetPage(
           name: '/login',

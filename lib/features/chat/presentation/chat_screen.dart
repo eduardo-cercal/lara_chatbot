@@ -105,10 +105,8 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ),
 
-          // Mensagem de boas-vindas da Lara
-          welcomeMessage:
-              'Oi! Sou a Lara. Sabia que o computador foi ao médico? Ele estava com um vírus! 😂 Como posso te ajudar hoje?',
           enableAttachments: false,
+          enableVoiceNotes: false,
           provider: _provider,
         ),
       ),
